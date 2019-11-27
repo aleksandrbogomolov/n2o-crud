@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page xmlns="http://n2oapp.net/framework/config/schema/page-1.0"
+      xmlns:wgt="http://n2oapp.net/framework/config/schema/n2o-widget-3.0"
+      xmlns:ctrl="http://n2oapp.net/framework/config/schema/n2o-control-1.0">
+    <name>Список книг</name>
+    <layout>n2o/layout/single</layout>
+    <object-id>book</object-id>
+    <regions>
+        <region place="single">
+            <container id="main">
+                <wgt:table>
+                    <wgt:query-id>book</wgt:query-id>
+                    <wgt:columns>
+                        <wgt:column column-field-id="id" visible="false"/>
+                        <wgt:column column-field-id="name"/>
+                        <wgt:column column-field-id="author.name" name="Автор"/>
+                    </wgt:columns>
+                    <wgt:filters>
+                        <ctrl:input-text id="name"/>
+                        <ctrl:select id="author" label="Автор">
+                            <ctrl:query query-id="author" label-field-id="name"/>
+                        </ctrl:select>
+                    </wgt:filters>
+                    <wgt:action-menu>
+                        <wgt:menu-item id="create" label="Создать" icon="icon-plus" context="false">
+                            <wgt:event>
+                                <wgt:show-modal page-id="book" page-name="Создание книги" action-id="create"/>
+                            </wgt:event>
+                        </wgt:menu-item>
+                        <wgt:menu-item id="update" label="Изменить" icon="icon-pencil" context="true">
+                            <wgt:event>
+                                <wgt:show-modal page-id="book" page-name="Изменение книги" action-id="update"/>
+                            </wgt:event>
+                        </wgt:menu-item>
+                        <wgt:menu-item id="delete" label="Удалить" icon="icon-trash" context="true">
+                            <wgt:event>
+                                <wgt:invoke-action action-id="delete"/>
+                            </wgt:event>
+                        </wgt:menu-item>
+                    </wgt:action-menu>
+                </wgt:table>
+            </container>
+        </region>
+    </regions>
+</page>

@@ -1,0 +1,10 @@
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+    <deployment>
+        <dependencies>
+            <module name="org.postgres" export="true"/>
+            <module name="org.jboss.logmanager" export="true"/>
+            <module name="org.slf4j.impl" export="true"/>
+            <module name="javax.transaction.api" export="true"/>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>

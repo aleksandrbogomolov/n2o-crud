@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="h2Init" class="net.n2oapp.h2.H2Init" init-method="init">
+        <constructor-arg name="dataSourceName" value="jdbc/tutorial"/>
+        <constructor-arg name="jndiRoutingDataSource" ref="routingDataSource"/>
+        <property name="pathToInitScript" value="META-INF/init.sql"/>
+    </bean>
+
+    <bean id="bookService" class="com.aleksandrbogomolov.BookService">
+        <property name="jdbc" ref="jdbcTemplate"/>
+    </bean>
+
+</beans>

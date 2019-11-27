@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<query xmlns:exc="http://n2oapp.net/framework/config/schema/n2o-query-executions-1.0"
+       xmlns="http://n2oapp.net/framework/config/schema/query-3.0">
+    <object-id>book</object-id>
+    <execution>
+        <exc:java-criteria bean-name="bookService" criteria-class="com.aleksandrbogomolov.BookCriteria"/>
+    </execution>
+    <fields>
+        <field>
+            <id>id</id>
+            <domain>integer</domain>
+            <display>id</display>
+            <filters>
+                <filter type="eq" filter-field="id"/>
+            </filters>
+        </field>
+        <field>
+            <id>name</id>
+            <name>Наименование</name>
+            <domain>string</domain>
+            <display>name</display>
+            <filters>
+                <filter type="eq" filter-field="name">name</filter>
+            </filters>
+        </field>
+        <field>
+            <id>author.id</id>
+            <domain>integer</domain>
+            <display>author.id</display>
+            <filters>
+                <filter type="eq" filter-field="author.id" domain="integer">authorId</filter>
+            </filters>
+        </field>
+        <field>
+            <id>author.name</id>
+            <domain>string</domain>
+            <display>author.name</display>
+        </field>
+    </fields>
+</query>
